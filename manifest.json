@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "IP del sitio",
+  "version": "1.0.0",
+  "description": "Muestra la IP de conexión y la IP real del sitio, detectando si hay proxy de por medio.",
+  "permissions": ["webRequest", "storage", "tabs", "proxy", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["bubble.js"], "run_at": "document_idle" }
+  ],
+  "action": { "default_title": "IP del sitio", "default_popup": "popup.html" }
+}
